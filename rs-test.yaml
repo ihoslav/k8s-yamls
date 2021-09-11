@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-rs
+  labels:
+    name: my-rs
+    type: devops
+
+
+
+spec:
+  template:
+    
+    metadata:
+      name: ihos-pod
+      labels:
+        name: ihos-pod
+        type: Pod 
+    spec:
+      containers:
+        - name: ihos-pod
+          image: ihoslav/thetech-image:v1
+          ports:
+            - containerPort: 3000
+  replicas: 3
+  selector:
+    matchLabels:
+      type: Pod 
