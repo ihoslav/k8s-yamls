@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: emin-pod
+  labels: 
+    app: emin-pod
+    type: Pod 
+spec:
+    containers:
+    - name: emin-pod
+      image: ihoslav/thetech-image:v1
+      ports:
+        - containerPort: 3000
+
