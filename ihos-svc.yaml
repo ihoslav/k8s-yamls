@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ihos-svc
+  labels:
+    name: thetech
+    tier: thetech-app
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 3000
+      port: 80
+      nodePort: 30005
+  selector:
+    tier: thetech-app
+
+
+    

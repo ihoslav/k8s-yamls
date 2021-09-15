@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ihos-pod
+  labels:
+    name: thetech
+    tier: thetech-app
+
+
+spec:
+ containers:
+   - name: ihos-con
+     image: ihoslav/thetech-image:v1
+     volumeMounts:
+     - mountPath: /thetech-data
+       name: thetech-volume
+     ports:
+       - containerPort: 3000
+ volumes:
+   - name: thetech-volume
+     hostPath:
+      path: /iho-data
+
+
+ 
+ 
