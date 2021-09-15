@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ihos-pv
+  labels:
+    volume: ihos-pv
+spec:
+ accessModes:
+ - ReadWriteOnce
+ - ReadWriteMany
+ - ReadOnlyMany
+ storageClassName: nfs
+ persistentVolumeReclaimPolicy: Retain
+ capacity:
+  storage: 1Gi
+ nfs:
+   server: 172.31.27.82
+   path: / 

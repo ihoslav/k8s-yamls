@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emin-pod
+  labels:
+    app: thetech-app
+spec:
+  containers:
+    - name: ihos-con
+      image: ihoslav/thetech-image:v1
+      ports:
+        - containerPort: 3000
+      volumeMounts:
+      - name : ihos-volume
+        mountPath: /app/iho
+  volumes: 
+   - name: ihos-volume
+     persistentVolumeClaim:
+       claimName: ihos-pvc
