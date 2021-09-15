@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+ name: ihos-pod
+ labels:
+   name: ihos-pod
+   tier: thetech-app
+spec:
+  containers:
+    - name: ihos-con
+      image: ihoslav/thetech-image:v1
+      ports:
+        - containerPort: 3000
+      volumeMounts:
+        - name: thetech-volume
+          mountPath: /html
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: thetech-volume
+          mountPath: /usr/share/nginx/html
+  volumes:
+  - name: thetech-volume
+    emptyDir: {} 
