@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ihos-deploy
+  labels:
+    app: thetech-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: thetech-app
+  template:      
+   metadata:
+     name: ihos-con
+     labels:
+       app: thetech-app 
+   spec:
+    containers:
+      - name: ihos-con
+        image: ihoslav/thetech-image:v1
+        volumeMounts:
+        - mountPath: /thetech-data
+          name: thetech-volume
+        ports:
+          - containerPort: 3000
+    volumes:
+     - name: thetech-volume
+       hostPath:
+        path: /ihos-data
+            
