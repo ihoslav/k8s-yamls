@@ -1,0 +1,10 @@
+apiVersion: v1
+data:
+  ENV: stage
+  TEAM: devops5
+  USER: emin
+  PROXY: ali
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: ihos-configmap
